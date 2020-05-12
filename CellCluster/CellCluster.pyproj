@@ -1,0 +1,52 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>kmeans_detailed.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>CellCluster</Name>
+    <RootNamespace>CellCluster</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="CellCluster.py" />
+    <Compile Include="dicescore.py" />
+    <Compile Include="imagemanipulation.py" />
+    <Compile Include="kmeans.py" />
+    <Compile Include="kmeans_detailed.py" />
+    <Compile Include="kmeans_detailed_1.py" />
+    <Compile Include="Meeting\template.py" />
+    <Compile Include="Old\kmeans_1.py" />
+    <Compile Include="Old\load_multiple_image.py" />
+    <Compile Include="Old\stack_pictures.py" />
+    <Compile Include="playground.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Meeting\" />
+    <Folder Include="Old\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Meeting\meeting_13_05.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
