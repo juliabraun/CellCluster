@@ -38,6 +38,7 @@
     <Folder Include="Old\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="git_cheat_sheet.txt" />
     <Content Include="Meeting\meeting_13_05.md" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
