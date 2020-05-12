@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>kmeans_detailed.py</StartupFile>
+    <StartupFile>CellCluster.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -24,22 +24,25 @@
     <Compile Include="CellCluster.py" />
     <Compile Include="dicescore.py" />
     <Compile Include="imagemanipulation.py" />
-    <Compile Include="kmeans.py" />
-    <Compile Include="kmeans_detailed.py" />
-    <Compile Include="kmeans_detailed_1.py" />
-    <Compile Include="Meeting\template.py" />
-    <Compile Include="Old\kmeans_1.py" />
-    <Compile Include="Old\load_multiple_image.py" />
-    <Compile Include="Old\stack_pictures.py" />
+    <Compile Include="clustering\kmeans.py" />
+    <Compile Include="clustering\kmeans_detailed.py" />
+    <Compile Include="meeting\template.py" />
+    <Compile Include="old\kmeans_1.py" />
+    <Compile Include="old\load_multiple_image.py" />
+    <Compile Include="old\stack_pictures.py" />
+    <Compile Include="clustering\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="playground.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Meeting\" />
-    <Folder Include="Old\" />
+    <Folder Include="meeting\" />
+    <Folder Include="old\" />
+    <Folder Include="clustering\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="git_cheat_sheet.txt" />
-    <Content Include="Meeting\meeting_13_05.md" />
+    <Content Include="meeting\meeting_13_05.md" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

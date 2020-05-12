@@ -1,5 +1,4 @@
 
-
 import numpy as np
 import matplotlib.pyplot as plt
 import math
@@ -108,34 +107,53 @@ def accuracy(centr, centr_old):
 
 
 
-#HERE the code__________________________
-pos = np.array([[10, 32], [12, 31], [15, 30], [20, 0], [21, -2]])
-k = 2
-eps = 1.0
-new_eps = eps + 1
-eps_track = []
-max_iter = 10
-
-centr = np.array([[20,3], [5,3], [0, 10]])
-centr_old = np.zeros(centr.shape)
-centr = centr.astype(float)
-k=0
-while new_eps > eps:
-  # find cluster assignment
-  closest_cluster, dist_point_cluster = assign_closest_cluster(pos, centr)
-  centr_old[:,:] = centr[:,:]
-  #print(centr_old)
-
-  # update the centroid values
-  centr = update_centr(pos, centr, closest_cluster)
-  # compute accuracy (change in cluster position)
-  new_eps = accuracy(centr, centr_old)
-  eps_track.append(new_eps)
-  k=k+1
-
-#print(eps_track)
 
 
-plt.plot(eps_track, marker="s", ls = '')
-plt.show()
+# This functions makes a kmeans clustering. 
+# input: 
+# 
+#   - pos: numpy.array as matrix containing the set of points. 
+#       pos.shape[0] must be the number of points. 
+#       pos.shape[1] is the number of elements defining each point.
+#   - centr: numpy.array as matrix containing the set of centroids of the clusters. 
+#       centr.shape[0] must be the number of centroids. 
+#       centr.shape[1] is the number of elements defining each centroid.
+#   - eps: A float representing the required sum of (distances between each old centroid and the new centroid, respectively).
+#         when this accuracy is reached, clustering stops. 
+#   - max_iter: an integer number specifying the maximum number of clustering iterations.
+
+# output:
+#   - centr: numpy.array as matrix containing the set of centroids of the clusters. 
+#       centr.shape[0] must be the number of centroids. 
+#       centr.shape[1] is the number of elements defining each centroid. 
+#   - closest_cluster: a numpy.array of length pos.shape[0] that contains the cluster 
+#                   number corresponding to each point in pos.
+
+def julia_kmeans(pos, centr, eps, max_iter):
+  k=0
+  new_eps = eps + 1
+  eps_track = []
+
+  centr_old = np.zeros(centr.shape)
+  centr = centr.astype(float)
+  while new_eps > eps:
+    # find cluster assignment
+    closest_cluster, dist_point_cluster = assign_closest_cluster(pos, centr)
+    centr_old[:,:] = centr[:,:]
+    #print(centr_old)
+
+    # update the centroid values
+    centr = update_centr(pos, centr, closest_cluster)
+    # compute accuracy (change in cluster position)
+    new_eps = accuracy(centr, centr_old)
+    eps_track.append(new_eps)
+    k=k+1
+
+  #print(eps_track)
+
+
+  plt.plot(eps_track, marker="s", ls = '')
+  plt.show()
+  return centr, closest_cluster
+
 

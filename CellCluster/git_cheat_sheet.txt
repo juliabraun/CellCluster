@@ -13,6 +13,4 @@ push
 backup data to repository
 team explorer
 changes
-commit
-sync
-push
+commit all and push
