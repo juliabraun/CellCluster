@@ -1,7 +1,7 @@
 sequence to create a new repository
 
 create a web repository
-clone the web repository with visual studio in the appropiate folder 
+clone the web repository with visual studio in the appropriate folder 
 close visual studio
 copy the relevant files inside the folder (e.g. solution and source code files)
 open visual studio
