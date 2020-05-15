@@ -6,6 +6,13 @@ import matplotlib.pyplot as plt
 import numpy as np
 import clustering.kmeans_detailed as clust
 
+
+def rotate_vet(theta,vet_i):
+  vet_o = np.copy(vet_i)
+  vet_o[:,0] = np.cos(theta) * vet_i[:,0] + np.sin(theta) * vet_i[:,1] 
+  vet_o[:,1] = - np.sin(theta) * vet_i[:,0] + np.cos(theta) * vet_i[:,1] 
+  return vet_o
+
 #set filename ________________________________________________
 
 filename2 = 'C:\\Users\\User\\Desktop\\SS20\\DataScience\\Images\\CellNuclei_Segmentation_data\\data\\BBBC020_v1_images\\BBBC020_v1_images\\jw-1h 1\\jw-1h 1_(c1+c5).TIF'
@@ -75,19 +82,21 @@ plt.bar(bin_edges[:-1], histB, width = 1)
 plt.yscale("log")
 plt.plot()
 
-
 #plot tresholded and channel blue selection
 plt.subplot(2,2,3)
 io.imshow(img_blue)
 plt.title('After tresholding and boolean conversion')
 
+theta = 90*np.pi/180
+centrplot = rotate_vet(theta,centr)
 
 #$draw the points after clustering.
 plt.subplot(2,2,4)
 for i in range(len(centr)):
   cluster_0 = nuclei[closest_cluster == i]
-  plt.scatter(cluster_0[:,0], cluster_0[:,1])
-plt.scatter(centr[:,0], centr[:,1])
+  cluster_0_rot = rotate_vet(theta,cluster_0)
+  plt.scatter(cluster_0_rot[:,0], cluster_0_rot[:,1])
+plt.scatter(centrplot[:,0], centrplot[:,1])
 plt.title('Points after applied clustering')
 plt.xlabel('x')
 plt.ylabel('y')
