@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>CellCluster.py</StartupFile>
+    <StartupFile>IO\load_image.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -26,6 +26,9 @@
     <Compile Include="imagemanipulation.py" />
     <Compile Include="clustering\kmeans.py" />
     <Compile Include="clustering\kmeans_detailed.py" />
+    <Compile Include="IO\load_image.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="meeting\template.py" />
     <Compile Include="old\kmeans_1.py" />
     <Compile Include="old\load_multiple_image.py" />
@@ -37,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="meeting\" />
+    <Folder Include="IO\" />
     <Folder Include="old\" />
     <Folder Include="clustering\" />
   </ItemGroup>
