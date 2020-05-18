@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>IO\load_image.py</StartupFile>
+    <StartupFile>image_loading_v1.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,11 +22,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CellCluster.py" />
+    <Compile Include="colordist.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="dicescore.py" />
     <Compile Include="imagemanipulation.py" />
     <Compile Include="clustering\kmeans.py" />
     <Compile Include="clustering\kmeans_detailed.py" />
+    <Compile Include="image_loading_v1.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="IO\load_image.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mask.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="maxcolor.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="meeting\template.py" />

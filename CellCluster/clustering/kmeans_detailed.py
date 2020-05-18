@@ -24,10 +24,9 @@ def dist_manhattan(ele1, ele2):
 def dist_euclidean(ele1, ele2):
   dist2 = np.abs(ele1 - ele2)
   squared = np.power(dist2, 2)
-  sum = np.sum(dist2)
+  sum = np.sum(squared)
   root = np.sqrt(sum)
   return root
-
 
 
 
@@ -178,13 +177,18 @@ def julia_kmeans(pos, centr, eps, max_iter, dist):
     new_eps = accuracy(centr, centr_old, dist)
     eps_track.append(new_eps)
     m = m + 1
+    print(new_eps)
 
+
+#__________________________________________________________________________________
+#Here the code
   #print(eps_track)
 
   plt.figure(figsize = (35, 35))
   plt.subplot(2,2,1)
   plt.plot(eps_track, marker="s", ls = '')
   plt.title('Change of accuracy eps')
+  plt.yscale('log')
   plt.xlabel('Number of clustering round')
   plt.ylabel('eps')
   return centr, closest_cluster

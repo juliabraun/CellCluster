@@ -24,6 +24,8 @@ box3 = box(3,5,-9)
 box_all = np.concatenate((box1, box2, box3), axis = 0)
 
 
+
+#Here the clustering__________________________________________________________________________________
 eps = 0.01
 max_iter = 2000
 
