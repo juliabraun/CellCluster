@@ -2,25 +2,17 @@ import clustering.kmeans_detailed as clust
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
+import clustering.testing as testing
 
 #HERE the code__________________________
 
 
 
 #d changes the scaling from [0,1) to [0,d). b translates the set of points by px + bx, py + by. 
-
-
-def box(d,b,c):
-  box1 = np.random.rand(2000,2) - 0.5
-  box1 = d*box1
-  box1[:,0] = box1[:,0] + b
-  box1[:,1] = box1[:,1] + c
-  return box1
-
-box1 = box(5,10,-10)
-box2 = box(4,8,-10)
-box3 = box(3,5,-9)
-
+# create a test set of point clouds confined in a box
+box1 = testing.box(5,10,-10)
+box2 = testing.box(4,8,-10)
+box3 = testing.box(3,5,-9)
 box_all = np.concatenate((box1, box2, box3), axis = 0)
 
 
