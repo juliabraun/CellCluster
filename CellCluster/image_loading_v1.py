@@ -7,6 +7,7 @@ import imageio
 import matplotlib.pyplot as plt
 import numpy as np
 import clustering.kmeans_detailed as clust
+import clustering.distance as distance
 import colordist as coldist
 import IO.load_image as loader
 import maxcolor
@@ -63,7 +64,7 @@ max_iter = 2000
 #centr = np.array([[0,100,5], [300,355,20], [400,255,5], [511,100,5], [300, 500,20]])
 
 centr = maxcolor.create_centers(img_np, r, treshold)
-centr, closest_cluster = clust.julia_kmeans(nuclei, centr, eps, max_iter, coldist.colordist)
+centr, closest_cluster = clust.julia_kmeans(nuclei, centr, eps, max_iter, distance.colordist)
 
 
 

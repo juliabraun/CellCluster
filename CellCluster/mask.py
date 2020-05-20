@@ -1,5 +1,6 @@
 import numpy as np
 import clustering.kmeans_detailed as kmeans
+import clustering.distance as distance
 
 
 def circular_mask(r):
@@ -10,7 +11,7 @@ def circular_mask(r):
   while i < mask.shape[0]:
     j = 0
     while j < mask.shape[1]:
-      if kmeans.dist_euclidean(centr_index, np.array([i, j])) > r:
+      if distance.dist_euclidean(centr_index, np.array([i, j])) > r:
         mask[i,j] = 1
       else:
         mask[i,j] = 0

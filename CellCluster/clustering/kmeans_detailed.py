@@ -10,85 +10,6 @@ import math
 # center, point, array
 
 
-
-# - this function calculates the manhattan distance between the 
-#   positions of two points 
-#   (e.g. position x_p,y_p,...n_p of pixel and 
-#   position x_p,y_p,...n_p of center). 
-#           It returns a positive real number given two arrays. 
-# - input: 
-#     - ele1, ele2: numpy arrays of length pos.shape[1].
-# - output:
-#     - sum: the manhattan distance as sum of the distances of 
-#     the point components: |x1 - x2| + |y1 - y2|+ ... + |n1-n2|.
-
-def dist_manhattan(ele1, ele2):
-  # ele1 is a point (here: pixel), ele2 is a second point 
-  #   (here: the center).
-  # np.abs returns the absolute value (negative values become 
-  #   positive). 
-  # dist1 therefore is a array with index-wise differences, 
-  #   it contains: 
-  #   x1-x2 at index 0,  y1-y2 at index 1, ..., n1-n2 at 
-  #     index n-1. 
-  # The letter indicates the component (x,y,...n), 
-  # the number indicates the point (1: pixel, 2: center).
-  dist1 = np.abs(ele1 - ele2)
-  # the manhattan distance is defined as the sum of the 
-  # components of dist1: |x1 - x2| + |y1 - y2|+ ... + |n1-n2|. 
-  # np.sum makes index-wise sum over the values of all indices. 
-  sum = np.sum(dist1)
-  # the output is sum: the manhattan distance between one point 
-  #   of the dataset (here: position x,y,...n of pixel) 
-  #   and the second point (here: position x,y,...n of center). 
-  return sum
-
-
-
-# - this function calculates the euclidean distance of the 
-#     positions of two points (e.g. position x_p,y_p,...n_p of pixel 
-#     and position x_c,y_c,...n_c of center). 
-#     It returns a positive real number given two arrays. 
-# - input: 
-#     - ele1, ele2: numpy arrays of length pos.shape[1].
-# - output:
-#     - sum: the euclidean distance as squareroot of the 
-#     sum of the squared differences between the components of 
-#     two points: sqrt((|x1 - x2|)^2 + (|y1 - y2|)^2 + ... + (|n1 - n2|)^2).
-
-def dist_euclidean(ele1, ele2):
-  # ele1 is a point, ele2 is a second point 
-  #   (here: the center).
-  # np.abs returns the absolute value 
-  #   (negative values become positive). 
-  # dist2 therefore is a array with index-wise differences, 
-  #   it contains: x1-x2 at index 0, y1-y2 at index 1, ..., 
-  #   n1-n2 at index n-1. 
-  #   The letter indicates the component (x,y,...n), 
-  #   the number indicates the point (1: pixel, 2: center)
-  # The name dist2 has been chosen to avoid confusion with 
-  #   dist1 from dist_manhattan().
-  dist2 = np.abs(ele1 - ele2)
-  # squared is dist2 to the power of 2, thus an array with 
-  # the index-wise differences squared: (x1-x2)^2 and (y1-y2)^2
-  squared = np.power(dist2, 2)
-  # The Euclidean distance is defined as the squareroot of the
-  # sum of the squared differences between the components of 
-  # two points = the hypothenusis in pythagorean theorem. 
-  # np.sum makes index-wise sum over the values of all indices. 
-  #   It gives a number representing the sum of the squared 
-  #   differences between the same component of two different 
-  #   points. 
-  sum = np.sum(squared)
-  # np.sqrt returns the squareroot of the input value, 
-  # which is the euclidean distance between one point 
-  # (position x,y,...n of pixel)and the second point
-  # (position x,y,...n of center).
-  root = np.sqrt(sum)
-  return root
-
-
-
 # This function calculates the closest cluster for each 
 # point inside a set of points.
 # centers centr of the clusters must be provided.
@@ -124,7 +45,7 @@ def dist_euclidean(ele1, ele2):
 # (here: position x_p,y_p,...n_p of pixel) to the position of the 
 # second point (here: position x_c,y_c,...n_c of center). 
 # The calculation is done component-wise, as specified in the
-# distance functions dist_manhattan() and dist_euclidean().
+# distance functions distance.dist_manhattan() and distance.dist_euclidean().
 # Thus, every data point is compared with every cluster. 
 # Pos is the array of data points, here: the np.array of 
 # image points. Any dimensional array can be used, but the 
@@ -133,6 +54,7 @@ def dist_euclidean(ele1, ele2):
 # must be equal to the number of components of the second point 
 # (here: position x_c,y_c,...n_c of center). 
 # This is checked in the first line of the function.
+
 def assign_closest_cluster(pos, centr, dist):
   # here is a check if the amount of components of one point 
   # (here: position x_p,y_p,...n_p of pixel)
@@ -143,7 +65,7 @@ def assign_closest_cluster(pos, centr, dist):
   #   (here: the amount of pixels of the image, 
   #   the amount of points of the image array, 
   #   the amount of centers specified),
-  # and b is the number of array elements in axis1 direction
+  # and b is the amount of array elements in axis1 direction
   #   (here: the amount of components of each pixel of the image, 
   #   the amount of components of each point of the image array
   #   all points have to have the same amount of components, 
@@ -178,10 +100,64 @@ def assign_closest_cluster(pos, centr, dist):
     # "-1" is not an index of the centr array. Hence, something is 
     # wrong with this function. 
     return -1, -1
+  # The new array closest_cluster should contain at each index the 
+  # integer number of the centr that corresponds to the point of 
+  # the image array at the same index 
+  # (here: position x_p,y_p,...n_p of pixel). Then, writing 
+  # "print(closest_cluster[index])" with index replaced by the 
+  # index number i, will output the center number that the data point
+  # in pos with index i got assigned to.
+  # Index must be integer, therefore the object type is fixed 
+  # as int with np.int32. 
+  # closest_cluster is an array filled with zeros, containing 
+  # the same amount of array elements in axis0 direction as the 
+  # image array pos (the array of data points, here: the np.array of 
+  # image points). Thus, the amount of indices of closest_cluster is 
+  # equal to the amount of indices of pos.
   closest_cluster = np.int32(np.zeros([pos.shape[0]]))
+  # The new array dist_point_cluster should contain at each index 
+  # the computed distance of the point to its CLOSEST center. 
+  # The following algorithm will find out, which center is the 
+  # closest for each data point (here: the distance of each pixel 
+  # to its closest center). Then, writing 
+  # "print(dist_point_cluster[index])" with index replaced by the 
+  # index number i, will output the distance between the data point
+  # in pos with index i for axis0 (pos[i,:], does not correspond to 
+  # the pixel position in the original image, but to the pixel 
+  # position in the tresholded point array pos that contains the 
+  # positions of highest intensity) and the closest center 
+  # (stored in centr at index i).
+  # Distance is a float, therefore the object type is not fixed since 
+  # np.zeros() produces arrays filled with float per default. 
   dist_point_cluster = np.zeros([pos.shape[0]])
+  # Two counters are needed to calculate the distance of each
+  # point of the set (here: each pixel of highest value, 
+  # indicating one cell per point) to each center. 
+  # One counter iterates over the indices of pos 
+  # (one of the selected image point after the other).
+  # For each of these points, one counter is needed to iterate 
+  # over all centers (one center after the other). Hence, 
+  # there is an iteration inside an iteration. 
+  # The counter for iteration over the points of the set pos 
+  # is called i_pos. The counter for the iteration over the
+  # centers is called i_c. Any variable has to be instanciated 
+  # first before it can be used. Instanciation means defining 
+  # variable by writing it down and assigning a value to it. 
+  # The counters get instanciated with the value 0 because the 
+  # counting should start at index 0.
   i_pos = 0
+  # The iteration goes from index i_pos, 0 in the first round, 
+  # to the index pos.shape[0] (the amount of points of the set 
+  # pos minus 1). The minus 1 is due to the ``zero indexing'' 
+  # python: indexing does not go from 1:end, but from 0:(end-1).
+  # the ``:'' indicate a distance to be gapped. 
   while i_pos < pos.shape[0]:
+    # the counter for iteration over the centers, i_c, gets 
+    # instantiated inside the first while loop. In this way, 
+    # every time, the next point of the set is reached, 
+    # the counter over the centers is reset to 0. Then, the
+    # distance can be computed of this point to all the centers 
+    # (and not only the centr.shape[0]th center).  
     i_c = 0
     ele1 = pos[i_pos,:]
     sum = dist(ele1, centr[i_c,:])
