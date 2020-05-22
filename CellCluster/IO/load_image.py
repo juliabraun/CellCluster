@@ -5,7 +5,6 @@ import imageio
 import matplotlib.pyplot as plt
 import numpy as np
 import clustering.kmeans_detailed as clust
-import colordist as coldist
 
 
 def rotate_vet(theta,vet_i):

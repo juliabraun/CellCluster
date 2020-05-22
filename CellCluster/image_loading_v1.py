@@ -8,14 +8,12 @@ import matplotlib.pyplot as plt
 import numpy as np
 import clustering.kmeans_detailed as clust
 import clustering.distance as distance
-import colordist as coldist
 import IO.load_image as loader
 import maxcolor
 
 
 #set filename ________________________________________________
 
-filename2 = 'C:\\Users\\User\\Desktop\\SS20\\DataScience\\Images\\CellNuclei_Segmentation_data\\data\\BBBC020_v1_images\\BBBC020_v1_images\\jw-1h 1\\jw-1h 1_(c1+c5).TIF'
 filename = os.path.join("C:\\","Users", "User", "Images", "jw-1h 2_c5.TIF")
 #set a treshold for removing black values and selecting the core blue of the nuclei. 
 treshold = 100

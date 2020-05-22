@@ -22,9 +22,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CellCluster.py" />
+    <Compile Include="clustering\distance_documentation_v1.py" />
     <Compile Include="clustering\distance.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="clustering\kmeans_detailed_documentation_original.py" />
+    <Compile Include="clustering\kmeans_detailed_documentation_v1.py" />
     <Compile Include="clustering\testing.py">
       <SubType>Code</SubType>
     </Compile>
