@@ -1,3 +1,9 @@
+r"""
+This file is the first try of a kmeans, using predefined functions. 
+The self-written kmeans is in kmeans_detailed.py
+"""
+
+
 import cv2
 import numpy as np
 import matplotlib.pyplot as plt

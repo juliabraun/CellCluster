@@ -1,3 +1,7 @@
+r"""
+This file is the image preparation for kmeans, using predefined functions from cv2. 
+The self-written image preparation functions are in image_loading_v1.py and use skimage. 
+"""
 
 import cv2
 import numpy as np

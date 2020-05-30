@@ -11,6 +11,7 @@
     <OutputPath>.</OutputPath>
     <Name>CellCluster</Name>
     <RootNamespace>CellCluster</RootNamespace>
+    <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -26,19 +27,22 @@
     <Compile Include="clustering\distance.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="clustering\kmeans_detailed.py" />
     <Compile Include="clustering\kmeans_detailed_documentation_original.py" />
     <Compile Include="clustering\kmeans_detailed_documentation_v1.py" />
-    <Compile Include="clustering\testing.py">
+    <Compile Include="clustering\testing.py" />
+    <Compile Include="clustering\testing_documentation_v1.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="dicescore.py" />
     <Compile Include="imagemanipulation.py" />
     <Compile Include="clustering\kmeans.py" />
-    <Compile Include="clustering\kmeans_detailed.py" />
     <Compile Include="image_loading_v1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IO\load_image.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\__init__.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="mask.py">
@@ -54,17 +58,27 @@
     <Compile Include="clustering\__init__.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="preprocessing\radius.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="preprocessing\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="playground.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="meeting\" />
     <Folder Include="IO\" />
+    <Folder Include="preprocessing\" />
     <Folder Include="old\" />
     <Folder Include="clustering\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="git_cheat_sheet.txt" />
     <Content Include="meeting\meeting_13_05.md" />
+    <Content Include="update_description.md">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

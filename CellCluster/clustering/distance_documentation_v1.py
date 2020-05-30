@@ -77,6 +77,30 @@ def dist_euclidean(ele1, ele2):
 
 
 
-def colordist(col1, col2):
-  colordist_v = col1[2]*col2[2]*dist_euclidean(col1[0:2], col2[0:2])
-  return colordist_v
+def dist_colorweight(ele1, ele2):
+    r"""
+    This function computes the weighted distance between two points 
+    using the color intensity as weight. 
+
+    - input: 
+        - ele1, ele2: numpy arrays of length pos.shape[1]. 
+        The syntax of col1 is: index 0: position in axis0 direction,
+        index 1: position in axis1 direction, 
+        index 2: color intensity value. ele1[2] gives the intensity value. 
+        Note: this algorithm works with binary images: the color of a 
+        pixel is expressed as a number between 0-256. If the colors do not appear 
+        as black and white in the image, this is because a colormap is applied. 
+
+    - output: 
+        - dist_colorweight_v: the distance value between one point
+       of the dataset (here: point of a set) and the second point 
+       (here: center point), taking into account the color intensity value
+
+    The function multiplies the intensity values of both points by their euclidean
+    distance. Thereby, points that have a low intensity value (corresponding to the 
+    intensity of interest) receive a lower distance dist_colorweight_v, 
+    and therefore are considered more important for belonging to a center point. 
+    """
+   
+    dist_colorweight_v = ele1[2]*ele2[2]*dist_euclidean(ele1[0:2], ele2[0:2])
+    return dist_colorweight_v

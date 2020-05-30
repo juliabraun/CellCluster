@@ -398,7 +398,7 @@ def update_centr(pos, centr, closest_cluster):
 # center point to its old center point. 
 # Once the change is lower than a specified accuracy 
 # eps, the algorithm should terminate. 
-# centr_old is specified in the function julia_kmeans(), 
+# centr_old is specified in the function kmeans(), 
 # it is the array of center points of the previous round 
 # of clustering. 
 
@@ -474,7 +474,7 @@ def accuracy(centr, centr_old, dist):
 # the arguments have been specified above. New is max_iter: 
 # an integer number to specify the maximum number the while 
 # loop should execute.
-def julia_kmeans(pos, centr, eps, max_iter, dist):
+def kmeans(pos, centr, eps, max_iter, dist):
   # m is the counter for max_iter, it counts the round 
   # of clustering.
   m = 0

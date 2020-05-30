@@ -512,7 +512,7 @@ def update_centr(pos, centr, closest_cluster):
 # center point to its old center point. 
 # Once the change is lower than a specified accuracy 
 # eps, the algorithm should terminate. 
-# centr_old is instantiated in the function julia_kmeans(), 
+# centr_old is instantiated in the function kmeans(), 
 # it is the array of center points of the previous round 
 # of clustering. 
 def accuracy(centr, centr_old, dist):
@@ -563,7 +563,7 @@ def accuracy(centr, centr_old, dist):
 # Function END accuracy() *************************
 
 
-# Function START julia_kmeans() ***************************************
+# Function START kmeans() ***************************************
 # # This functions makes a kmeans clustering. 
 # input: 
 # 
@@ -599,13 +599,13 @@ def accuracy(centr, centr_old, dist):
 #   that contains the cluster number corresponding to 
 #   each point in pos.
 
-# *** julia_kmeans: kmeans clustering ***
+# *** kmeans: kmeans clustering ***
 # This functions makes a kmeans clustering, with 
 # the mean as the criterium for finding new centers. 
 # The arguments have been specified above. New is max_iter: 
 # an integer number to specify the maximum times the while 
 # loop should execute.
-def julia_kmeans(pos, centr, eps, max_iter, dist):
+def kmeans(pos, centr, eps, max_iter, dist):
   #
   # *** counter m: count rounds of clustering ***
   # m is the counter for max_iter, it counts the round 
@@ -690,12 +690,12 @@ def julia_kmeans(pos, centr, eps, max_iter, dist):
   plt.xlabel('Number of clustering round')
   plt.ylabel('eps')
 
-  # *** RETURNS of julia_kmeans() ***
-  # Finally, the function julia_kmeans() returns array centr of 
+  # *** RETURNS of kmeans() ***
+  # Finally, the function kmeans() returns array centr of 
   # center points after clustering, and the array closest_cluster,
   # containing the number (as index) of the center point that got 
   # assigned to each point of the set in pos 
   # (at the same index as in closest_cluster). 
   # Happy clustering! 
   return centr, closest_cluster
-# Function END julia_kmeans() *************************
+# Function END kmeans() *************************

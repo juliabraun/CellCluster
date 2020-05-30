@@ -1,4 +1,9 @@
-
+r"""
+Here docstring description of the script 
+Function syntax
+environment variables 
+files
+"""
 import skimage
 import skimage.io as io
 import skimage.transform as transform
@@ -10,11 +15,15 @@ import clustering.kmeans_detailed as clust
 import clustering.distance as distance
 import IO.load_image as loader
 import maxcolor
+# how to call a function from a package ????????????????????
+import preprocessing.radius as radius
+
 
 
 #set filename ________________________________________________
-
 filename = os.path.join("C:\\","Users", "User", "Images", "jw-1h 2_c5.TIF")
+
+
 #set a treshold for removing black values and selecting the core blue of the nuclei. 
 treshold = 100
 r = 15
@@ -32,6 +41,9 @@ img_blue = np.uint8(255*transform.rescale(img_blue, 0.25, anti_aliasing=False))
 img_np = np.uint8(np.zeros([img_blue.shape[0], img_blue.shape[1], 3]))
 img_np[:,:,2] = img_blue
 
+
+# fourier transform
+radius.estimate_radius(img_blue)
 
 # Every datapoint below treshold will be black. Every datapoint above treshold will be white. 
     # nuclei will appear as white spots on black background. 
@@ -62,7 +74,7 @@ max_iter = 2000
 #centr = np.array([[0,100,5], [300,355,20], [400,255,5], [511,100,5], [300, 500,20]])
 
 centr = maxcolor.create_centers(img_np, r, treshold)
-centr, closest_cluster = clust.julia_kmeans(nuclei, centr, eps, max_iter, distance.colordist)
+centr, closest_cluster = clust.kmeans(nuclei, centr, eps, max_iter, distance.dist_colorweight)
 
 
 
