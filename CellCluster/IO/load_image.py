@@ -15,8 +15,8 @@ def rotate_vet(theta,vet_i):
 
 
 
-#check if filename lead to a valid file path or not. 
-def load_image(filename):
+#check if filename is a valid file path or not. 
+def check_filepath(filename):
   if os.path.isfile(filename):
     print("This is a file")
     img_np = io.imread(filename)

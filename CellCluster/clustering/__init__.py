@@ -14,11 +14,11 @@ content (files):
     - kmeans_detailed_documentation_v1.py: detailed commentary on kmeans_detailed.py
 
     - testing.py: functions that create synthetic defined point clouds for testing the clustering
+    - testing_documentation_v1.py: detailed commentary on testing.py
         
 
 import commands:
     - import clustering.distance as distance
     - import clustering.kmeans_detailed as clust
     - import clustering.testing as testing
-
 """

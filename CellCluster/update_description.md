@@ -8,10 +8,25 @@ change indentation from 2 to 4 spaces
 - add comments for clustering.testing.py
 - rename function: julia_kmeans() to kmeans()
 - on github set package structure independent of folder Julia
+- test_kmeans.py: execute testing.py functions 
 
 # Next steps
-- write commentary for CellCluster.py and image_loading_v1.py
+- write commentary for image_loading_v1.py
 - write commentary for io.load_image.py
-- write commentary for mask
-- write commentary for maxcolor
-- write commentary for preprocessing 
+- write commentary for maxcolor.py
+- write commentary for preprocessing.radius.py 
+
+# Introduction to program
+To make the clustering program working, 
+- the startup file is: image_loading_v1.py
+In the startup file at line 24 (ALWAYS UPDATE) you have to replace your own filepath 
+leading to the image "jw-1h 2_c5.TIF" which I used for testing. 
+In the original folder structure of the dataset, it is stored at "BBBC020_v1_images\jw-1h 2\jw-1h 2_c5.TIF".
+
+To make the testing program working, 
+- the startup file is: test_kmeans.py
+In lines 13-15 you can choose your own random sets by adjusting the parameters. 
+
+Documentation versions: files with ending 'documentation_v1.py'
+The program is set to run with the concise versions, however, 
+the code is equivalent in both concise and documentation version. 

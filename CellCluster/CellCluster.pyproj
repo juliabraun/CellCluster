@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>image_loading_v1.py</StartupFile>
+    <StartupFile>test_kmeans.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,7 +22,11 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="CellCluster.py" />
+    <Compile Include="dicescore.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="mask_documentation_v1.py" />
+    <Compile Include="test_kmeans.py" />
     <Compile Include="clustering\distance_documentation_v1.py" />
     <Compile Include="clustering\distance.py">
       <SubType>Code</SubType>
@@ -48,7 +52,7 @@
     <Compile Include="mask.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="maxcolor.py">
+    <Compile Include="maxcolor_documentation_v1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="meeting\template.py" />
@@ -75,6 +79,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="git_cheat_sheet.txt" />
+    <Content Include="meeting\meeting_06_03.md" />
     <Content Include="meeting\meeting_13_05.md" />
     <Content Include="update_description.md">
       <SubType>Code</SubType>

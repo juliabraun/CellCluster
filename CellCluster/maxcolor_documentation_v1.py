@@ -1,3 +1,8 @@
+r"""
+This file contains functions that find the initial centers 
+for kmeans clustering. 
+"""
+
 import IO.load_image as loader
 import os
 import numpy as np
@@ -7,8 +12,14 @@ import matplotlib.pyplot as plt
 
 
 def create_centers(img_np_colored, r, color_treshold):
-#create extended image + 10 pixels at each side
-#r = 50
+  r""" This function 
+    - input: img_np_colored: a np.array
+        - r: the radius of the circular mask to be created. 
+    - output:
+        - mask: 
+  """
+  #create extended image + 10 pixels at each side
+  #r = 50
   img_np = np.copy(img_np_colored[:,:,2])
   ext1 = img_np.shape[0]+2*r
   ext2 = img_np.shape[1]+2*r
