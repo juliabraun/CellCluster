@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>test_kmeans.py</StartupFile>
+    <StartupFile>IO\display.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -12,6 +12,9 @@
     <Name>CellCluster</Name>
     <RootNamespace>CellCluster</RootNamespace>
     <SuppressConfigureTestFrameworkPrompt>true</SuppressConfigureTestFrameworkPrompt>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -25,22 +28,36 @@
     <Compile Include="dicescore.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="clustering\find_centers.py" />
+    <Compile Include="documentation\find_centers_documentation_v1.py" />
+    <Compile Include="documentation\logical_project_flow.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="documentation\__init__.py" />
+    <Compile Include="image_loading_v1.py" />
+    <Compile Include="IO\display.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IO\image_manipulation.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="mask_documentation_v1.py" />
+    <Compile Include="meeting\meeting_6_100620.md" />
     <Compile Include="test_kmeans.py" />
-    <Compile Include="clustering\distance_documentation_v1.py" />
+    <Compile Include="documentation\distance_documentation_v1.py" />
     <Compile Include="clustering\distance.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="clustering\kmeans_detailed.py" />
-    <Compile Include="clustering\kmeans_detailed_documentation_original.py" />
-    <Compile Include="clustering\kmeans_detailed_documentation_v1.py" />
+    <Compile Include="documentation\kmeans_detailed_documentation_original.py" />
+    <Compile Include="documentation\kmeans_detailed_documentation_v1.py" />
     <Compile Include="clustering\testing.py" />
-    <Compile Include="clustering\testing_documentation_v1.py">
+    <Compile Include="documentation\testing_documentation_v1.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="imagemanipulation.py" />
-    <Compile Include="clustering\kmeans.py" />
-    <Compile Include="image_loading_v1.py">
+    <Compile Include="old\imagemanipulation_cv2.py" />
+    <Compile Include="old\kmeans.py" />
+    <Compile Include="documentation\image_loading_documentation_v1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="IO\load_image.py">
@@ -50,9 +67,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="mask.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="maxcolor_documentation_v1.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="meeting\template.py" />
@@ -73,6 +87,7 @@
   <ItemGroup>
     <Folder Include="meeting\" />
     <Folder Include="IO\" />
+    <Folder Include="documentation\" />
     <Folder Include="preprocessing\" />
     <Folder Include="old\" />
     <Folder Include="clustering\" />

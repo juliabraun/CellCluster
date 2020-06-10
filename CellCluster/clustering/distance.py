@@ -53,7 +53,7 @@ def dist_euclidean(ele1, ele2):
   return root 
 
 
-def dist_colorweight(col1, col2):
+def dist_colorweight(ele1, ele2):
     r"""
     This function computes the weighted distance between two points 
     using the color intensity as weight. 
@@ -70,12 +70,12 @@ def dist_colorweight(col1, col2):
        (here: center point), taking into account the color intensity value
 
     Note: this algorithm works with binary images: the color of a 
-    pixel is expressed as a number between 0-256.
+    pixel is expressed as a number between 0-255.
 
     The function multiplies the intensity values of both points by their euclidean
-    distance. Thereby, points that have a low intensity value (corresponding to the 
-    intensity of interest) receive a lower distance dist_colorweight_v, 
-    and therefore are considered more important for belonging to a center point. 
+    distance. Thereby, points that have a higher intensity value (corresponding to the 
+    intensity of interest) receive a higher distance dist_colorweight_v, 
+    and therefore are considered more important for belonging to a center point. ????
     """
-    dist_colorweight_v = col1[2]*col2[2]*dist_euclidean(col1[0:2], col2[0:2])
+    dist_colorweight_v = ele1[2]*ele2[2]*dist_euclidean(ele1[0:2], ele2[0:2])
     return dist_colorweight_v

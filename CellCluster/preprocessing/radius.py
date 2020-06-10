@@ -1,9 +1,8 @@
 r"""
 This file contains functions to find out the radius of the cells. 
-Knowing the radius, it will be possible to estimate the center points 
-that are needed for clustering. 
-Calculating the radius is based on fourier transform.
-Detailed comments on this will follow.
+content(files):
+    - autocorr()
+    - estimate_radius()
 """
 import numpy as np
 import IO.load_image as loader
@@ -42,5 +41,7 @@ def estimate_radius(img_channel_2):
     r = np.sqrt(count/np.pi)
     print("The estimated radius is " + str(r))
 
-    io.imshow(shift)
-    io.show()
+    return r
+
+    #io.imshow(shift)
+    #io.show()

@@ -260,7 +260,8 @@ def kmeans(pos, centr, eps, max_iter, dist):
         # new accuracy
         new_eps = accuracy(centr, centr_old, dist) 
         # save new accuracy
-        eps_track.append(new_eps) 
+        eps_track.append(new_eps)
+        print(new_eps)
    
         # next round of clustering
         m = m + 1 
