@@ -1,6 +1,4 @@
-r""" This file contains mask functions. 
-
-"""
+# This file contains mask functions. 
 
 import numpy as np
 import clustering.distance as distance

@@ -7,7 +7,7 @@ import IO.load_image as loader
 import os
 import numpy as np
 import skimage.io as io
-import mask as mk
+import image_processing.mask as mk
 import matplotlib.pyplot as plt
 
 

@@ -23,9 +23,9 @@ change indentation from 2 to 4 spaces
 - write commentary for image_loading_v1.py
 - write commentary for io.load_image.py
 - write commentary for find_centers_documentation_v1.py
-- write commentary for preprocessing.radius.py 
-- put preprocessing content of image_loading_v1.py
-into file of package preprocessing
+- write commentary for image_processing.radius.py 
+- put image_processing content of image_loading_v1.py
+into file of package image_processing
 - write code for random choice of initial centers: clustering.find_centers.random_centers()
 - understand dist_colorweight(ele1, ele2):
 - what is def rotate_vet() in load_image?

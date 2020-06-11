@@ -15,10 +15,11 @@ import numpy as np
 import clustering.kmeans_detailed as clust
 import clustering.distance as distance
 import IO.load_image as loader
-import IO.image_manipulation as image_manipulation
+import image_processing.image_manipulation as image_manipulation
 import clustering.find_centers as find_centers
-import preprocessing.radius as radius
+import image_processing.radius as radius
 import pathlib as pl
+import IO.display as display
 
 
 # set filename ________________________________________________
@@ -27,6 +28,20 @@ img_np_original = loader.check_filepath(filepath)
 
 # make a copy of the original image. img_np with be the image to work with. 
 img_np = np.copy(img_np_original)
+
+
+
+# TEST SPACE
+
+
+   
+
+img_test = np.zeros((img_np.shape[0], img_np.shape[1], img_np.shape[2]))
+
+
+display.figures_result((img_test, "ImageA", "Points in axis0", "Points in axis1"), (img_test, "ImageB", "axis0", "axis1"))
+# END TEST SPACE
+
 
 # rescale the image and extract one channel
 img_np, img_channel = image_manipulation.img_rescaling(img_np, 2, 0.1)
@@ -56,22 +71,6 @@ centr = find_centers.create_centers(img_np, radius_find_center, 60)
 centr, closest_cluster = clust.kmeans(nuclei, centr, eps, max_iter, distance.dist_colorweight)
 
 
-
-# make a new figure:
-plt.figure()
-
-# plot original image
-plt.subplot(2,2,1)
-plt.title("Original image")
-io.imshow(img_np)
-
-# plot histogram logarithmic scale
-plt.subplot(2,2,2)
-histB, bin_edges = np.histogram(img_np[:,:,2], bins = range(256))
-plt.title("Histogram of channel B values")
-plt.bar(bin_edges[:-1], histB, width = 1)
-plt.yscale("log")
-plt.plot()
 
 # plot tresholded and channel blue selection
 plt.subplot(2,2,3)

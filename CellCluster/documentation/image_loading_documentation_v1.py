@@ -13,9 +13,9 @@ import numpy as np
 import clustering.kmeans_detailed as clust
 import clustering.distance as distance
 import IO.load_image as loader
-import IO.image_manipulation as image_manipulation
+import image_processing.image_manipulation as image_manipulation
 import clustering.find_centers as find_centers
-import preprocessing.radius as radius
+import image_processing.radius as radius
 
 
 r""" Here the filepath to the image used in all next steps stored. 
@@ -29,7 +29,7 @@ img_np_original = loader.check_filepath(filename)
 img_np = np.uint8(np.zeros([img_np_original.shape[0], img_np_original.shape[1], img_np_original.shape[2]]))
 img_np[:,:,:] = img_np_original[:,:,:]
 
-r""" Here some preprocessing is done. The aim of a clustering is 
+r""" Here some image_processing is done. The aim of a clustering is 
 to identify the relevant information in the picture, which is
 the information with highest variation. In the case of cell nuclei,
 the highest variation is the color of the nuclei, and the position

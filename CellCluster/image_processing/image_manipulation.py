@@ -1,22 +1,15 @@
-r"""
-This file contains functions that manipulate images. 
-Content(functions):
-    - rotate_vet()
-    - crop_image()
-    - img_rescaling()
-"""
+# This file contains functions that manipulate images. 
+# Content(functions):
+#     - rotate_vet()
+#     - crop_image()
+#     - img_rescaling()
+
 
 import numpy as np
 import skimage.transform as transform
+import matplotlib.pyplot as plt
 
-r"""
-This function rotates points in space by an angle theta. 
-"""
-def rotate_vet(theta,vet_i):
-  vet_rotated = np.copy(vet_i)
-  vet_rotated[:,0] = np.cos(theta) * vet_i[:,0] + np.sin(theta) * vet_i[:,1] 
-  vet_rotated[:,1] = - np.sin(theta) * vet_i[:,0] + np.cos(theta) * vet_i[:,1] 
-  return vet_rotated
+
 
 
 def crop_image(img_input, final_dim1, final_dim2):
@@ -35,6 +28,7 @@ def crop_image(img_input, final_dim1, final_dim2):
     """
     img_cropped = img_input[0:final_dim1, 0:final_dim2]
     return img_cropped
+
 
 def img_rescaling(img_input, channel, rescaling_factor):
     r"""
@@ -93,7 +87,6 @@ with the blue channel values stored in img_channel_2.
 """
     img_np[:,:,2] = img_channel
     return img_np, img_channel
-
 
 
 def treshold_values(img_input_2D, img_original, treshold):
@@ -172,3 +165,14 @@ def treshold_values(img_input_2D, img_original, treshold):
     nuclei = np.transpose(nuclei_reshaped)
 
     return nuclei
+
+
+
+
+
+# This function rotates points in space by an angle theta. 
+def rotate_vet(theta,vet_i):
+  vet_rotated = np.copy(vet_i)
+  vet_rotated[:,0] = np.cos(theta) * vet_i[:,0] + np.sin(theta) * vet_i[:,1] 
+  vet_rotated[:,1] = - np.sin(theta) * vet_i[:,0] + np.cos(theta) * vet_i[:,1] 
+  return vet_rotated
