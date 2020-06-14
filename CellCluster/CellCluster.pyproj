@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>image_loading_v1.py</StartupFile>
+    <StartupFile>startup_clustering.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -34,7 +34,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="documentation\__init__.py" />
-    <Compile Include="image_loading_v1.py" />
+    <Compile Include="startup_clustering.py" />
+    <Compile Include="image_processing\image_properties.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="image_processing\radius.py" />
     <Compile Include="image_processing\__init__.py" />
     <Compile Include="IO\display.py">

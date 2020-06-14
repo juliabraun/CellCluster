@@ -1,7 +1,9 @@
-r"""
-This file contains functions that find the initial centers 
-for kmeans clustering. 
-"""
+
+# This file contains functions that find the initial centers 
+# for kmeans clustering. 
+# content(functions):
+#   - create(centers). Display found center point as red pixel. 
+
 
 import IO.load_image as loader
 import os
@@ -9,6 +11,7 @@ import numpy as np
 import skimage.io as io
 import image_processing.mask as mk
 import matplotlib.pyplot as plt
+import image_processing.image_properties as image_properties
 
 
 def create_centers(img_input, r, color_treshold):
@@ -60,19 +63,19 @@ def create_centers(img_input, r, color_treshold):
      # define the circular mask of radius r.  
     mask = mk.circular_mask(r)
 
-    r"""
-    WHILE INSTANTIATION
-    This loop finds out the positions of intensity values maxcol 
-    in the image. maxcol is initially set to 255, but 
-    gets updated during the loop and will correspond to the maximum
-    intensity value found in the image. Then, all pixels will be 
-    selected with the same intensity value. 
-    """
+    
+    # WHILE INSTANTIATION
+    # This loop finds out the positions of intensity values maxcol 
+    # in the image. maxcol is initially set to 255, but 
+    # gets updated during the loop and will correspond to the maximum
+    # intensity value found in the image. Then, all pixels will be 
+    # selected with the same intensity value. 
+    
     maxcol = 255
 
-    r""" create an empty list to save the maximum intensity value corresponding 
-    to the center of a nucleus. 
-    """
+    # create an empty list to save the maximum intensity value corresponding 
+    # to the center of a nucleus. 
+    
     save_c_max = []
 
     while maxcol > color_treshold:
@@ -110,24 +113,23 @@ def create_centers(img_input, r, color_treshold):
 
     i = 0
     while i < save_c_max.shape[0]:
-        r"""
-        This while iterates over all found center pixels of
-        the nuclei and replaces their color with red 
-        (channel 0, intensity 255). 
-        """
+        
+        # This while iterates over all found center pixels of
+        # the nuclei and replaces their color with red 
+        # (channel 0, intensity 255). 
+        
         img_input[save_c_max[i,0], save_c_max[i,1], 0] = 255
         i = i+1
     
-    r"""
-    Display image of the nuclei whose found center pixel 
-    is colored red. 
-    """
-    plt.figure()
-    io.imshow(img_input)
-    io.show()
+    #r"""
+    #Display image of the nuclei whose found center pixel 
+    #is colored red. 
+    #"""
+    #plt.figure()
+    #io.imshow(img_input)
+    #io.show()
         
-    return save_c_max # np.array that contains int of position and intensity
-
+    return save_c_max # np.array that contains int of position and intensity of the centers
 
 
 def random_centers(k,):

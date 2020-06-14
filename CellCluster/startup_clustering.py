@@ -16,6 +16,7 @@ import clustering.kmeans_detailed as clust
 import clustering.distance as distance
 import IO.load_image as loader
 import image_processing.image_manipulation as image_manipulation
+import image_processing.image_properties as image_properties
 import clustering.find_centers as find_centers
 import image_processing.radius as radius
 import pathlib as pl
@@ -26,21 +27,19 @@ import IO.display as display
 filepath = pl.Path("C://","Users", "User", "Images", "jw-1h 3_c5.TIF")
 img_np_original = loader.check_filepath(filepath)
 
+# greeting
+print("Welcome. This program performs a kmeans clustering on points of a set. \
+It computes: \n \
+1. the average radius of the nuclei. \n \
+2. the number of nuclei in a given image. \n \
+3. the accuracy after each round of clustering \n \
+It displays: \n \
+3. the original image \n \
+4. the found centers of each cluster, as red pixel in the original image \n \
+5. each recognised nucleus colored in its own color. Different color, different cluster. \n")
+
 # make a copy of the original image. img_np with be the image to work with. 
 img_np = np.copy(img_np_original)
-
-
-
-# TEST SPACE
-
-
-   
-
-img_test = np.zeros((img_np.shape[0], img_np.shape[1], img_np.shape[2]))
-
-
-display.figures_result((img_test, "ImageA", "Points in axis0", "Points in axis1"), (img_test, "ImageB", "axis0", "axis1"))
-# END TEST SPACE
 
 
 # rescale the image and extract one channel
@@ -50,6 +49,7 @@ img_np, img_channel = image_manipulation.img_rescaling(img_np, 2, 0.1)
 # Knowing the average radius of the cells, it will be possible to iterate 
 # over one after the other. 
 r = radius.estimate_radius(img_channel)
+
 # adjust the radius to be used for the center estimation.
 # It should be large enough to not find two centers in the same 
 # nucleus, but small enough to not find one center for two nuclei. 
@@ -59,36 +59,27 @@ radius_find_center = 2.2*r
 # to nuclei. 
 nuclei = image_manipulation.treshold_values(img_channel, img_np, 60)
 
-# Initialise kmeans
+# Initialise kmeans ______________________________________________
 # The intial centers can be found with the function find_centers.create_centers().
-# find_centers is based on finding the maximum intensity. 
+# find_centers() is based on finding the maximum intensity. 
 # Once the initial center points are found, they are fed to the kmeans(). 
-# kmeans() image_manipulation.ist for a distance function, here the weighted distance. 
+# kmeans() uses image_manipulation.dist as a distance function, here the weighted distance. 
 
 eps = 0.1
 max_iter = 2000
 centr = find_centers.create_centers(img_np, radius_find_center, 60)
+
+# count the nuclei per image (equal to the number of centers for clustering)
+image_properties.count_nuclei(centr)
+
+# apply kmeans to assign points of the set to center points
 centr, closest_cluster = clust.kmeans(nuclei, centr, eps, max_iter, distance.dist_colorweight)
 
+# color each cluster differently. Preserve the intensity differences 
+# of each nucleus. 
+img_colored = display.color_clusters(nuclei, img_np, closest_cluster)
 
-
-# plot tresholded and channel blue selection
-plt.subplot(2,2,3)
-io.imshow(img_channel)
-plt.title('After tresholding')
-
-theta = 90*np.pi/180
-centrplot = image_manipulation.rotate_vet(theta,centr)
-
-# draw the points after clustering.
-plt.subplot(2,2,4)
-
-for i in range(len(centr)):
-  cluster_0 = nuclei[closest_cluster == i]
-  cluster_0_rot = image_manipulation.rotate_vet(theta,cluster_0)
-  plt.scatter(cluster_0_rot[:,0], cluster_0_rot[:,1])
-plt.scatter(centrplot[:,0], centrplot[:,1])
-plt.title('Points after applied clustering')
-plt.xlabel('x')
-plt.ylabel('y')
-plt.show()
+description_1 = (img_np_original, "Original image", "axis0", "axis1")
+description_2 = (img_np, "Estimated centers marked red", "", "axis1")
+description_3 = (img_colored, "Different color, different cluster", "axis0", "axis1")
+display.figures_result(description_1, description_2, description_3)

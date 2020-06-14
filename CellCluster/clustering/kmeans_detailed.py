@@ -1,6 +1,9 @@
 # ---- INFO -----
 # This is the version with concise comments. For detailed comments,
 # see file kmeans_detailed_documentation_v1.py.
+# content(functions):
+# - kmeans(). Plot 'Change of accuracy eps'. 
+
 # ---------------
 
 import numpy as np
@@ -261,21 +264,21 @@ def kmeans(pos, centr, eps, max_iter, dist):
         new_eps = accuracy(centr, centr_old, dist) 
         # save new accuracy
         eps_track.append(new_eps)
-        print(new_eps)
+        print("Computing how the accuracy changes ... " + str(new_eps))
    
         # next round of clustering
         m = m + 1 
         #print(new_eps)
 
     # -----------------------------
-    # VISUAL OUTPUT ---------------
-    plt.figure(figsize = (35, 35))
-    plt.subplot(2,2,1) 
-    plt.plot(eps_track, marker="s", ls = '')  # marker s: square; ls '': no line
-    plt.title('Change of accuracy eps')
-    plt.yscale('log')
-    plt.xlabel('Number of clustering round')
-    plt.ylabel('eps')
+    ## VISUAL OUTPUT ---------------
+    # plt.figure(figsize = (35, 35))
+    # plt.subplot(2,2,1) 
+    # plt.plot(eps_track, marker="s", ls = '')  # marker s: square; ls '': no line
+    # plt.title('Change of accuracy eps')
+    # plt.yscale('log')
+    # plt.xlabel('Number of clustering round')
+    # plt.ylabel('eps')
 
     # Happy clustering! 
     # centers after clustering, points assigned 

@@ -39,7 +39,7 @@ def estimate_radius(img_channel_2):
     circlex, circley = np.where(shift>0)
     count = circlex.shape[0]
     r = np.sqrt(count/np.pi)
-    print("The estimated radius is " + str(r))
+    print("The estimated average radius of the nuclei is " + str(r) + " pixel.")
 
     return r
 
