@@ -5,13 +5,13 @@
 #   - create(centers). Display found center point as red pixel. 
 
 
-import IO.load_image as loader
+import kmeans.IO.load_image as loader
 import os
 import numpy as np
 import skimage.io as io
-import image_processing.mask as mk
+import kmeans.image_processing.mask as mk
 import matplotlib.pyplot as plt
-import image_processing.image_properties as image_properties
+import kmeans.image_processing.image_properties as image_properties
 
 
 def create_centers(img_input, r, color_treshold):

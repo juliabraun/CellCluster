@@ -4,7 +4,7 @@ import os
 import imageio
 import matplotlib.pyplot as plt
 import numpy as np
-import clustering.kmeans_detailed as clust
+import kmeans.clustering.kmeans_detailed as clust
 import pathlib as pl
 
 
@@ -16,4 +16,3 @@ def check_filepath(file_path: pl.Path):
     else:
         raise FileNotFoundError(f"File {file_path} is not a file ")
     return img_np
-

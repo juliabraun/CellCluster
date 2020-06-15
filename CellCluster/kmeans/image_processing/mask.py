@@ -3,7 +3,7 @@ r""" This file contains mask functions.
 """
 
 import numpy as np
-import clustering.distance as distance
+import kmeans.clustering.distance as distance
 
 
 

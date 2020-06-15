@@ -12,20 +12,21 @@ import os
 import imageio
 import matplotlib.pyplot as plt
 import numpy as np
-import clustering.kmeans_detailed as clust
-import clustering.distance as distance
-import IO.load_image as loader
-import image_processing.image_manipulation as image_manipulation
-import image_processing.image_properties as image_properties
-import clustering.find_centers as find_centers
-import image_processing.radius as radius
+import kmeans.clustering.kmeans_detailed as clust
+import kmeans.clustering.distance as distance
+import kmeans.IO.load_image as loader
+import kmeans.image_processing.image_manipulation as image_manipulation
+import kmeans.image_processing.image_properties as image_properties
+import kmeans.clustering.find_centers as find_centers
+import kmeans.image_processing.radius as radius
 import pathlib as pl
-import IO.display as display
+import kmeans.IO.display as display
 
 
 # set filename ________________________________________________
-filepath = pl.Path("C://","Users", "User", "Images", "jw-1h 3_c5.TIF")
-img_np_original = loader.check_filepath(filepath)
+#filepath = pl.Path("C://","Users", "User", "Images", "jw-1h 3_c5.TIF")
+#img_np_original = loader.check_filepath("C:\\Users\\User\\Images")
+img_np_original = io.imread("C:\\Users\\User\\Images\\jw-1h 3_c5.TIF")
 
 # greeting
 print("Welcome. This program performs a kmeans clustering on points of a set. \
@@ -60,7 +61,7 @@ radius_find_center = 2.2*r
 nuclei = image_manipulation.treshold_values(img_channel, img_np, 60)
 
 # Initialise kmeans ______________________________________________
-# The intial centers can be found with the function find_centers.create_centers().
+# The initial centers can be found with the function find_centers.create_centers().
 # find_centers() is based on finding the maximum intensity. 
 # Once the initial center points are found, they are fed to the kmeans(). 
 # kmeans() uses image_manipulation.dist as a distance function, here the weighted distance. 

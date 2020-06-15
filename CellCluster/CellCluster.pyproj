@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>startup_clustering.py</StartupFile>
+    <StartupFile>kmeans\startup_clustering.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -25,79 +25,71 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="dicescore.py">
+    <Compile Include="kmeans\clustering\distance.py" />
+    <Compile Include="kmeans\clustering\find_centers.py" />
+    <Compile Include="kmeans\clustering\kmeans_detailed.py" />
+    <Compile Include="kmeans\clustering\testing.py" />
+    <Compile Include="kmeans\clustering\__init__.py" />
+    <Compile Include="kmeans\dicescore.py" />
+    <Compile Include="kmeans\documentation\distance_documentation_v1.py" />
+    <Compile Include="kmeans\documentation\find_centers_documentation_v1.py" />
+    <Compile Include="kmeans\documentation\image_loading_documentation_v1.py" />
+    <Compile Include="kmeans\documentation\kmeans_detailed_documentation_original.py" />
+    <Compile Include="kmeans\documentation\kmeans_detailed_documentation_v1.py" />
+    <Compile Include="kmeans\documentation\logical_project_flow.py" />
+    <Compile Include="kmeans\documentation\mask_documentation_v1.py" />
+    <Compile Include="kmeans\documentation\testing_documentation_v1.py" />
+    <Compile Include="kmeans\documentation\__init__.py" />
+    <Compile Include="kmeans\image_processing\gaussian_filter.py" />
+    <Compile Include="kmeans\image_processing\image_manipulation.py" />
+    <Compile Include="kmeans\image_processing\image_properties.py" />
+    <Compile Include="kmeans\image_processing\mask.py" />
+    <Compile Include="kmeans\image_processing\radius.py" />
+    <Compile Include="kmeans\image_processing\__init__.py" />
+    <Compile Include="kmeans\Meeting\template.py" />
+    <Compile Include="kmeans\IO\display.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="clustering\find_centers.py" />
-    <Compile Include="documentation\find_centers_documentation_v1.py" />
-    <Compile Include="documentation\logical_project_flow.py">
+    <Compile Include="kmeans\IO\load_image.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="documentation\__init__.py" />
-    <Compile Include="startup_clustering.py" />
-    <Compile Include="image_processing\image_properties.py">
+    <Compile Include="kmeans\IO\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="image_processing\radius.py" />
-    <Compile Include="image_processing\__init__.py" />
-    <Compile Include="IO\display.py">
+    <Compile Include="kmeans\playground.py" />
+    <Compile Include="kmeans\startup_clustering.py" />
+    <Compile Include="kmeans\test_kmeans.py" />
+    <Compile Include="kmeans\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="image_processing\image_manipulation.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="documentation\mask_documentation_v1.py" />
-    <Compile Include="meeting\meeting_6_100620.md" />
-    <Compile Include="test_kmeans.py" />
-    <Compile Include="documentation\distance_documentation_v1.py" />
-    <Compile Include="clustering\distance.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="clustering\kmeans_detailed.py" />
-    <Compile Include="documentation\kmeans_detailed_documentation_original.py" />
-    <Compile Include="documentation\kmeans_detailed_documentation_v1.py" />
-    <Compile Include="clustering\testing.py" />
-    <Compile Include="documentation\testing_documentation_v1.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="old\imagemanipulation_cv2.py" />
-    <Compile Include="old\kmeans.py" />
-    <Compile Include="documentation\image_loading_documentation_v1.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="IO\load_image.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="IO\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="image_processing\mask.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="meeting\template.py" />
-    <Compile Include="old\kmeans_1.py" />
-    <Compile Include="old\load_multiple_image.py" />
-    <Compile Include="old\stack_pictures.py" />
-    <Compile Include="clustering\__init__.py">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="playground.py" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="meeting\" />
-    <Folder Include="IO\" />
-    <Folder Include="documentation\" />
-    <Folder Include="image_processing\" />
-    <Folder Include="old\" />
-    <Folder Include="clustering\" />
+    <Folder Include="kmeans\clustering\" />
+    <Folder Include="kmeans\clustering\__pycache__\" />
+    <Folder Include="kmeans\documentation\" />
+    <Folder Include="kmeans\image_processing\" />
+    <Folder Include="kmeans\image_processing\__pycache__\" />
+    <Folder Include="kmeans\Meeting\" />
+    <Folder Include="kmeans\IO\" />
+    <Folder Include="kmeans\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="git_cheat_sheet.txt" />
-    <Content Include="meeting\meeting_06_03.md" />
-    <Content Include="meeting\meeting_13_05.md" />
-    <Content Include="update_description.md">
-      <SubType>Code</SubType>
-    </Content>
+    <Content Include="kmeans\clustering\__pycache__\check_function.cpython-37.pyc" />
+    <Content Include="kmeans\clustering\__pycache__\distance.cpython-37.pyc" />
+    <Content Include="kmeans\clustering\__pycache__\find_centers.cpython-37.pyc" />
+    <Content Include="kmeans\clustering\__pycache__\kmeans_detailed.cpython-37.pyc" />
+    <Content Include="kmeans\clustering\__pycache__\testing.cpython-37.pyc" />
+    <Content Include="kmeans\clustering\__pycache__\testing_documentation_v1.cpython-37.pyc" />
+    <Content Include="kmeans\clustering\__pycache__\__init__.cpython-37.pyc" />
+    <Content Include="kmeans\image_processing\__pycache__\image_manipulation.cpython-37.pyc" />
+    <Content Include="kmeans\image_processing\__pycache__\image_properties.cpython-37.pyc" />
+    <Content Include="kmeans\image_processing\__pycache__\mask.cpython-37.pyc" />
+    <Content Include="kmeans\image_processing\__pycache__\radius.cpython-37.pyc" />
+    <Content Include="kmeans\image_processing\__pycache__\__init__.cpython-37.pyc" />
+    <Content Include="kmeans\Meeting\meeting_06_03.md" />
+    <Content Include="kmeans\Meeting\meeting_13_05.md" />
+    <Content Include="kmeans\Meeting\meeting_6_100620.md" />
+    <Content Include="kmeans\Meeting\meeting_7_170620.md" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

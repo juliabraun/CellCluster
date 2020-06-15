@@ -6,12 +6,12 @@ The user has to provide a set of initial center points!
 """
 
 
-import clustering.kmeans_detailed as clust
-import clustering.distance as distance
+import kmeans.clustering.kmeans_detailed as clust
+import kmeans.clustering.distance as distance
 import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
-import clustering.testing as testing
+import kmeans.clustering.testing as testing
 
 #Definitions__________________________
 # create 3 random sets for clustering

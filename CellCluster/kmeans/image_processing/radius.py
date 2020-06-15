@@ -5,7 +5,7 @@ content(files):
     - estimate_radius()
 """
 import numpy as np
-import IO.load_image as loader
+import kmeans.IO.load_image as loader
 import skimage.io as io
 
 

@@ -1,4 +1,3 @@
-
 # This file contains functions for displaying. 
 # content(files):
 #     - color_clusters()
@@ -203,4 +202,3 @@ def plot_after_clustering(centr, nuclei, closest_cluster):
     plt.ylabel('y')
     plt.show()
     return
-
