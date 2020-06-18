@@ -7,6 +7,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CellCluster", "CellCluster\
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "2019_what_happened_thus_far", "..\2019_what_happened_thus_far\2019_what_happened_thus_far.pyproj", "{38E2B265-7D64-464F-93C7-1D2FF2264848}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "CellCluster_evaluation", "..\CellCluster_evaluation\CellCluster_evaluation\CellCluster_evaluation.pyproj", "{9B97D3F3-AEBA-41C2-B6DE-430F5A4EBFA7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +19,8 @@ Global
 		{A2361FBF-11F7-464A-9431-A0B4A748D7D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38E2B265-7D64-464F-93C7-1D2FF2264848}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{38E2B265-7D64-464F-93C7-1D2FF2264848}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B97D3F3-AEBA-41C2-B6DE-430F5A4EBFA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B97D3F3-AEBA-41C2-B6DE-430F5A4EBFA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
