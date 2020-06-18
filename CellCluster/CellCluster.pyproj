@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>a2361fbf-11f7-464a-9431-a0b4a748d7d5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>kmeans\startup_clustering.py</StartupFile>
+    <StartupFile>startup_clustering.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -57,7 +57,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="kmeans\playground.py" />
-    <Compile Include="kmeans\startup_clustering.py" />
+    <Compile Include="startup_clustering.py" />
     <Compile Include="kmeans\test_kmeans.py" />
     <Compile Include="kmeans\__init__.py">
       <SubType>Code</SubType>
